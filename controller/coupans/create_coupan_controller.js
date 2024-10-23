@@ -1,6 +1,8 @@
+import { Coupan } from "../../main.js";
+
 const createCoupanController=async (req,res)=>{
     const {name,expireTime,noOfTimes,value}=req.body;
-    if(name!=null||expireTime!=null||noOfTimes!=null||value!=null){
+    if(name==null||expireTime==null||noOfTimes==null||value==null){
         res.send({statusCode:0,message:"One or more fields are empty"});
         return;
     }

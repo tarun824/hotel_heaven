@@ -5,7 +5,7 @@ import createCoupanController from "../../controller/coupans/create_coupan_contr
 const coupanRoute = express.Router();
 
 coupanRoute.get("/coupanValue",coupanValue);
-coupanRoute.get("/createCoupan",createCoupanController);
+coupanRoute.post("/createCoupan",createCoupanController);
 coupanRoute.get("/checkCoupanValidation",checkCoupanValidationController);
 
 export default coupanRoute;

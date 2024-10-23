@@ -4,7 +4,7 @@ const createBookingController=async(req,res)=>{
     const {roomNumber,coupanCode,inTime,outTime,phNumber,paymentType,paymentId,staffBooking}=req.body;
     console.log(roomNumber);
     if(roomNumber==null|inTime==null||outTime==null||phNumber==null||paymentType==null||paymentId==null){
-        res.send({statusCode:0,message:"One or more data is empty"});
+        res.send({statusCode:0,message:"One or more field is empty"});
         return;
     }
     let room = Room.findOne({room_no:roomNumber});

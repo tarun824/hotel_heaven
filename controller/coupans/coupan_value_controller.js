@@ -1,9 +1,10 @@
 import { Coupan } from "../../main.js";
 
-const coupanValue=(res,req)=>{
-    const {coupanName,calculateForValue}=req.res;
-    let coupan =Coupan.findOne({name:coupanName});
-    if(!coupan){
+const coupanValue=async(req,res)=>{
+    const {coupanName,calculateForValue}=req.body;
+    let coupan =await Coupan.findOne({name:coupanName});
+
+    if(coupan==null){
         res.send({
             statusCode:0,
             message:"Coupan Code not Found"
@@ -20,7 +21,9 @@ const coupanValue=(res,req)=>{
 
     }
     let coupanValue = coupan.value;
-    let finalValue = coupanValue * calculateForValue;
+
+    let finalValue = (1-coupanValue) * calculateForValue;
+
     res.send({
         statusCode : 1,
         data :{

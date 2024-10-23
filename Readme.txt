@@ -11,4 +11,3 @@ if data needs to be sent:
         data:{}
     }
 
-if 
